@@ -1,0 +1,80 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myVideoLabel" translate="mymediajhipApp.video.home.createOrEditLabel">Create or edit a Video</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="video.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="mymediajhipApp.video.video_name" for="field_video_name">Video_name</label>
+            <input type="text" class="form-control" name="video_name" id="field_video_name"
+                    ng-model="video.video_name"
+                    required />
+            <div ng-show="editForm.video_name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.video_name.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="mymediajhipApp.video.added_by" for="field_added_by">Added_by</label>
+            <input type="text" class="form-control" name="added_by" id="field_added_by"
+                    ng-model="video.added_by"
+                    required />
+            <div ng-show="editForm.added_by.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.added_by.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="mymediajhipApp.video.language" for="field_language">Language</label>
+            <input type="text" class="form-control" name="language" id="field_language"
+                    ng-model="video.language"
+                    required />
+            <div ng-show="editForm.language.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.language.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="mymediajhipApp.video.video_location" for="field_video_location">Video_location</label>
+            <input type="text" class="form-control" name="video_location" id="field_video_location"
+                    ng-model="video.video_location"
+                    required />
+            <div ng-show="editForm.video_location.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.video_location.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="mymediajhipApp.video.user" for="field_user">user</label>
+            <select class="form-control" id="field_user" name="user" ng-model="video.user" ng-options="user as user.login for user in users track by user.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
