@@ -1,0 +1,25 @@
+{
+  "generator-jhipster": {
+    "baseName": "mymediajhip",
+    "packageName": "com.bobbysnehacorp.mymedia",
+    "packageFolder": "com/bobbysnehacorp/mymedia",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "useSass": true,
+    "buildTool": "gradle",
+    "frontendBuilder": "grunt",
+    "enableTranslation": true,
+    "enableSocialSignIn": false,
+    "rememberMeKey": "834729ae3829e95fb6b37b984d0c5ed7ca1d6ede",
+    "testFrameworks": [
+      "gatling",
+      "protractor"
+    ]
+  }
+}
