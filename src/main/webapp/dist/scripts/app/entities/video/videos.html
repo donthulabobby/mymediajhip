@@ -1,0 +1,106 @@
+<div>
+    <h2 translate="mymediajhipApp.video.home.title">Videos</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="video.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span 
+class="hidden-xs"                        translate="mymediajhipApp.video.home.createLabel">Create new Video
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="{{ 'mymediajhipApp.video.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="search()">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="mymediajhipApp.video.video_name">Video_name</span></th>
+                    <th><span translate="mymediajhipApp.video.language">Language</span></th>
+                    <th><span translate="mymediajhipApp.video.added_by">Added_by</span></th>
+                    <th><span translate="mymediajhipApp.video.date_added">Date_added</span></th>
+                    <th><span translate="mymediajhipApp.video.video_location">Video_location</span></th>
+                    <th><span translate="mymediajhipApp.video.user">user</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="video in videos track by video.id">
+                    <td><a ui-sref="video.detail({id:video.id})">{{video.id}}</a></td>
+                    <td>{{video.video_name}}</td>
+                    <td>{{video.language}}</td>
+                    <td>{{video.added_by}}</td>
+                    <td>{{video.date_added | date:'medium'}}</td>
+                    <td>{{video.video_location}}</td>
+                    <td>
+                        {{video.user.login}}
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="video.detail({id:video.id})"
+                                    class="btn btn-info btn-sm"> 
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="video.edit({id:video.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="video.delete({id:video.id})"
+                                    class="btn btn-danger btn-sm">                                    
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<div ng-app="mymediajhipApp">
+<div ng-controller="VideoController as controller" class="videogular-container">
+    <videogular vg-theme="controller.config.theme.url">
+        <vg-media vg-src="controller.config.sources"
+                  vg-tracks="controller.config.tracks"
+                  vg-native-controls="true">
+        </vg-media>
+        
+        <vg-controls>
+            <vg-play-pause-button></vg-play-pause-button>
+            <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+            <vg-scrub-bar>
+                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+            </vg-scrub-bar>
+            <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+            <vg-volume>
+                <vg-mute-button></vg-mute-button>
+                <vg-volume-bar></vg-volume-bar>
+            </vg-volume>
+            <vg-fullscreen-button></vg-fullscreen-button>
+        </vg-controls>
+
+        <vg-overlay-play></vg-overlay-play>
+    </videogular>
+</div>
+</div>
+</div>

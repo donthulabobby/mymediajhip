@@ -5,7 +5,7 @@ angular.module('mymediajhipApp')
         $stateProvider
             .state('metrics', {
                 parent: 'admin',
-                url: '/metrics',
+                url: '/appmetrics',
                 data: {
                     authorities: ['ROLE_ADMIN'],
                     pageTitle: 'metrics.title'

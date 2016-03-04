@@ -35,6 +35,13 @@ module.exports = function (config) {
             'main/webapp/bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js',
             'main/webapp/bower_components/sockjs-client/dist/sockjs.js',
             'main/webapp/bower_components/stomp-websocket/lib/stomp.min.js',
+            'main/webapp/bower_components/videogular/videogular.js',
+            'main/webapp/bower_components/videogular-poster/vg-poster.js',
+            'main/webapp/bower_components/videogular-controls/vg-controls.js',
+            'main/webapp/bower_components/videogular-buffering/vg-buffering.js',
+            'main/webapp/bower_components/videogular-overlay-play/vg-overlay-play.js',
+            'main/webapp/bower_components/videogular-dash/vg-dash.js',
+            'main/webapp/bower_components/videogular-chromecast/dist/videogular-chromecast.min.js',
             'main/webapp/bower_components/angular-mocks/angular-mocks.js',
             // endbower
             'main/webapp/scripts/app/app.js',

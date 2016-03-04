@@ -3,7 +3,11 @@
 angular.module('mymediajhipApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalprecht.translate', 
     'ngResource', 'ngCookies', 'ngAria', 'ngCacheBuster', 'ngFileUpload',
     // jhipster-needle-angularjs-add-module JHipster will add new module here
-    'ui.bootstrap', 'ui.router',  'infinite-scroll', 'angular-loading-bar'])
+    'ui.bootstrap', 'ui.router',  'infinite-scroll', 'angular-loading-bar', 'ngSanitize', 
+    'com.2fdevs.videogular', 'com.2fdevs.videogular.plugins.controls',
+    'com.2fdevs.videogular.plugins.buffering', 'com.benjipott.videogular.plugins.chromecast',
+    'com.2fdevs.videogular.plugins.dash', 'com.2fdevs.videogular.plugins.overlayplay',
+    'com.2fdevs.videogular.plugins.poster'])
 
     .run(function ($rootScope, $location, $window, $http, $state, $translate, Language, Auth, Principal, ENV, VERSION) {
         // update the window title using params in the following
@@ -73,6 +77,7 @@ angular.module('mymediajhipApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pa
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $translateProvider, tmhDynamicLocaleProvider, httpRequestInterceptorCacheBusterProvider, AlertServiceProvider) {
         // uncomment below to make alerts look like toast
         //AlertServiceProvider.showAsToast(true);
+	$locationProvider.html5Mode({ enabled: true, requireBase: true });
 
         //enable CSRF
         $httpProvider.defaults.xsrfCookieName = 'CSRF-TOKEN';
