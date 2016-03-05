@@ -1,8 +1,0 @@
-{
-  "name": "videogular-dash",
-  "version": "1.4.2",
-  "main": "./vg-dash.js",
-  "dependencies": {
-    "videogular": "~1.4.2"
-  }
-}
